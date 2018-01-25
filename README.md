@@ -1,18 +1,18 @@
 ## Info
 
-* You are going to build a typing game
+<!-- * You are going to build a typing game
 
 * This lab uses the Bootstrap UI Framework. It is already imported for you.
 
 * You will be using JQuery to complete this lab
 
-* Make sure you import JQuery into your html file
+* Make sure you import JQuery into your html file -->
 
-* You will also need to import your own JavaScript file
+<!-- * You will also need to import your own JavaScript file -->
 
 ## Objectives
 
-* (ALREADY COMPLETE) Create two keyboards (include space bar):
+<!-- * (ALREADY COMPLETE) Create two keyboards (include space bar):
 
 * First keyboard, lowercase keys, numbers and special characters accessed without shift
 
@@ -20,13 +20,13 @@
 
 * Exclude keys like tab, delete, shift, command, ctl, aps, option/alt & enter
 
-* The first keyboard should be the only one displayed when the page loads.
+* The first keyboard should be the only one displayed when the page loads. -->
 
-* While the shift key is held down, hide the lowercase keyboard and show the uppercase one
+<!-- * While the shift key is held down, hide the lowercase keyboard and show the uppercase one
 
-* When the shift key is released, show the lowercase keyboard and hide the uppercase one
-
-* When keys are pressed, they should be highlighted in the browser.
+* When the shift key is released, show the lowercase keyboard and hide the uppercase one -->
+<!-- 
+* When keys are pressed, they should be highlighted in the browser. -->
 
 * Hint: the letters should be matched with the corresponding ascii code. The id value of the key in the html corresponds to the ASCII character code that you can access in the keyboard listener. For example, ascii value 65 is A, and 97 is a.
 
