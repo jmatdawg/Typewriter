@@ -5,23 +5,9 @@ var sentences = ["ten ate neite ate nee enet ite ate inet ent eate",
 "itant eate anot eat nato inate eatanot tain eat", 
 "nee ene ate ite tent tiet ent ine ene ete ene ate"];
 
-
-let sentenceContainer = $('#sentence');
-let sentenceCounter = 0;
-
-let splitSentence = sentences.map((sentence) => {
-    return sentence.split(" ");
-})
-const configuredSentence = splitSentence.map((character, index) => {
-    return `<span id="target-${index}">${character}</span>`;
-}).join('');
-
-sentenceContainer.append(sentences);
-
 $(document).ready(() => {
     $('#keyboard-upper-container').hide();
     })
-
 $(document).keydown( (e) => {
     if (e.keyCode == 16) {
         $('#keyboard-upper-container').show();
@@ -52,6 +38,21 @@ $(document).bind("keyup", (e) => {
     $('#32' + (e.keyCode)).css("background-color", "");
 })
 
+let sentenceContainer = $('#sentence');
+// let sentenceCounter = 0;
+
+let splitSentence = sentences.map((sentence) => {
+    return sentence.split("").map((character, index) => {
+        return `<span id="target-${index}">${character}</span>`;
+    }).join('');
+})
+console.log(splitSentence);
+
+const configuredSentence = splitSentence.map((character, index) => {
+    return `<span id="target-${index}">${character}</span>`;
+}).join('');
+
+sentenceContainer.append(sentences);
 
 
 
