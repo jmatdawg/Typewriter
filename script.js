@@ -7,9 +7,15 @@ let sentences = ["ten ate neite ate nee enet ite ate inet ent eate",
 "itant eate anot eat nato inate eatanot tain eat", 
 "nee ene ate ite tent tiet ent ine ene ete ene ate"];
 
+let splitSentence = sentences.map((sentence) => {
+    return sentence.split("").map((character, index) => {
+        return `<span id="target-${index}">${character}</span>`;
+    }).join('');
+})
+
 $(document).ready(() => {
     $('#keyboard-upper-container').hide();
-    })
+
     let sentenceContainer = $('#sentence');
 $(document).keydown( (e) => {
     if (e.keyCode == 16) {
@@ -24,38 +30,33 @@ $(document).keyup( (e) => {
 
 $(document).bind("keydown", (e) => {
     $('#' + (e.keyCode)).css("background-color", "yellow");
-})
+});
 $(document).bind("keyup", (e) => {
     $('#' + (e.keyCode)).css("background-color", "");
 });
 $(document).bind("keydown", (e) => {
     $('#' + (e.keyCode + 32)).css("background-color", "yellow");
-})
+});
 $(document).bind("keyup", (e) => {
     $('#' + (e.keyCode + 32)).css("background-color", "");
-})
+});
 $(document).bind("keydown", (e) => {
     $('#32' + (e.keyCode)).css("background-color", "yellow");
-})
+});
 $(document).bind("keyup", (e) => {
     $('#32' + (e.keyCode)).css("background-color", "");
-})
-
-let splitSentence = sentences.map((sentence) => {
-    return sentence.split("").map((character, index) => {
-        return `<span id="target-${index}">${character}</span>`;
-    }).join('');
-})
-console.log(splitSentence);
+});
+console.log(splitSentence[0]);
+console.log($("#sentence"));
 
 const configuredSentence = splitSentence.map((character, index) => {
     return `<span id="target-${index}">${character}</span>`;
 }).join('');
 
-sentenceContainer.append(sentences);
+sentenceContainer.append(sentences[0]);
 
 let sentence = sentences[sentenceCounter];
-sentenceContainer.empty();
+//sentenceContainer.empty();
 
 configureTargetLetter = () => {
     let targetLetter = $(`#target-${letterCounter}`);
@@ -66,3 +67,4 @@ targetKeyCode = targetLetter.text().charCodeAt(0);
 targetLetter.css("background-color", "yellow");   
 
 }
+});
