@@ -1,5 +1,7 @@
-
-var sentences = ["ten ate neite ate nee enet ite ate inet ent eate", 
+let letterCounter = 0;
+let sentenceCounter = 0;
+let targetKeyCode;
+let sentences = ["ten ate neite ate nee enet ite ate inet ent eate", 
 "Too ato too nOt enot one totA not anot tOO aNot", 
 "oat itain oat tainnate eate tea anne inant nean", 
 "itant eate anot eat nato inate eatanot tain eat", 
@@ -8,6 +10,7 @@ var sentences = ["ten ate neite ate nee enet ite ate inet ent eate",
 $(document).ready(() => {
     $('#keyboard-upper-container').hide();
     })
+    let sentenceContainer = $('#sentence');
 $(document).keydown( (e) => {
     if (e.keyCode == 16) {
         $('#keyboard-upper-container').show();
@@ -38,9 +41,6 @@ $(document).bind("keyup", (e) => {
     $('#32' + (e.keyCode)).css("background-color", "");
 })
 
-let sentenceContainer = $('#sentence');
-// let sentenceCounter = 0;
-
 let splitSentence = sentences.map((sentence) => {
     return sentence.split("").map((character, index) => {
         return `<span id="target-${index}">${character}</span>`;
@@ -54,8 +54,15 @@ const configuredSentence = splitSentence.map((character, index) => {
 
 sentenceContainer.append(sentences);
 
+let sentence = sentences[sentenceCounter];
+sentenceContainer.empty();
 
+configureTargetLetter = () => {
+    let targetLetter = $(`#target-${letterCounter}`);
+        if (letterCounter !==0) {
+            $(`#target-${letterCounter}` - 1).css("background-color", "");
+        }
+targetKeyCode = targetLetter.text().charCodeAt(0);
+targetLetter.css("background-color", "yellow");   
 
-
-//create a sentence counter to switch out sentence
-// document.on('keypress'), (e) =>{}
+}
